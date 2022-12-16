@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: catalogapi
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+        health-check-path: actuator/health
+        health-check-interval: 15s
+        tags: urlprefix-/${spring.application.name}
+        instance-id: ${spring.application.name}:${random.value}
+        heartbeat:
+          enabled: true
+      config:
+        enabled: true
+        format: yaml
+        data-key: data
+        default-context: ${spring.application.name}

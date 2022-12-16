@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    driver-class-name: com.alibaba.druid.proxy.DruidDriver
+    url: jdbc:mysql:///sc
+    username: root
+    password: 123456
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+
+# ?????
